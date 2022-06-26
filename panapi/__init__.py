@@ -33,7 +33,7 @@ class PanApiSession(OAuth2Session):
         Has the the access token expired?
     """
     
-    _configfile = '~/.panapi/config'
+    _configfile = '~/.panapi/config.yml'
     
     def authenticate(self, **kwargs):
         # Process the configfile or kwargs

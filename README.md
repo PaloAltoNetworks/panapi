@@ -1,4 +1,4 @@
-# pan-api-python
+# panapi
 
 This is a lightweight Python SDK designed to interact with Palo Alto Networks Cloud Management API.  It consists of an object-oriented library that simplifies OAuth 2.0 session estalishment, access token validation, and automatic access token refresh.  Each configuration API endpoint is represented as unique object instances that provide a common set of create, read, update, delete, and list functions. 
 

@@ -21,7 +21,10 @@ class PanObject:
             session.reauthenticate()
         url = self._base_url + self._endpoint
         headers = {'Content-Type': 'application/json'}
-        params = {'folder': self.folder}
+        if hasattr(self, 'folder'):
+            params = {'folder': self.folder}
+        else:
+            params = {}
         try:
             session.response = session.post(
                 url = url,
@@ -41,7 +44,10 @@ class PanObject:
         if session.is_expired:
             session.reauthenticate()
         url = self._base_url + self._endpoint
-        params = {'folder': self.folder}
+        if hasattr(self, 'folder'):
+            params = {'folder': self.folder}
+        else:
+            params = {}
         has_id = hasattr(self, 'id')
         has_name = hasattr(self, 'name')
         if has_id:
@@ -71,7 +77,10 @@ class PanObject:
         if session.is_expired:
             session.reauthenticate()
         url = self._base_url + self._endpoint
-        params = {'folder': self.folder}
+        if hasattr(self, 'folder'):
+            params = {'folder': self.folder}
+        else:
+            params = {}
         try:
             session.response = session.get(
                 url = url,
@@ -91,9 +100,15 @@ class PanObject:
     def update(self, session):
         if session.is_expired:
             session.reauthenticate()
-        url = self._base_url + self._endpoint + '/{}'.format(self.id)
+        if hasattr(self, 'id'):
+            url = self._base_url + self._endpoint + '/{}'.format(self.id)
+        else:
+            url = self._base_url + self._endpoint
         headers = {'Content-Type': 'application/json'}
-        params = {'folder': self.folder}
+        if hasattr(self, 'folder'):
+            params = {'folder': self.folder}
+        else:
+            params = {}
         try:
             session.response = session.put(
                 url = url,
@@ -114,7 +129,10 @@ class PanObject:
             session.reauthenticate()
         url = self._base_url + self._endpoint + '/{}'.format(self.id)
         headers = {'Content-Type': 'application/json'}
-        params = {'folder': self.folder}
+        if hasattr(self, 'folder'):
+            params = {'folder': self.folder}
+        else:
+            params = {}
         try:
             session.response = session.delete(
                 url = url,

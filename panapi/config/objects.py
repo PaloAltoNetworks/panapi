@@ -12,7 +12,7 @@ class AddressGroup(PanObject):
     _endpoint = '/sse/config/v1/address-groups'
     
 
-class Applications(PanObject):
+class Application(PanObject):
     'An application object'
     _endpoint = '/sse/config/v1/applications'
     

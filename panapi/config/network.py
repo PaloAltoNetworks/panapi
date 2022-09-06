@@ -17,7 +17,7 @@ class IKEGateway(PanObject):
     _endpoint = '/sse/config/v1/ike-gateways'
 
 
-class IPSedCryptoProfile(PanObject):
+class IPSecCryptoProfile(PanObject):
     'An IPSec crypto profile'
     _endpoint = '/sse/config/v1/ipsec-crypto-profiles'
 
@@ -27,14 +27,28 @@ class IPSecTunnel(PanObject):
     _endpoint = '/sse/config/v1/ipsec-tunnels'
 
 
-class IPSedCryptoProfile(PanObject):
-    'An IPSec crypto profile'
-    _endpoint = '/sse/config/v1/ipsec-crypto-profiles'
-
-
 class Location(PanObject):
     'A SASE location'
     _endpoint = '/sse/config/v1/locations'
+    # TODO Remove this once ADI-13944 is fixed
+    folder = 'Shared'
+    name = 'dummy'
+    def list(self, session):
+        if session.is_expired:
+            session.reauthenticate()
+        url = self._base_url + self._endpoint
+        params = {'folder': self.folder}
+        try:
+            session.response = session.get(
+                url = url,
+                params = params
+            )
+        except Exception as err:
+            print(err)
+        else:   
+            if session.response.status_code == 200:
+                result = session.response.json()
+                return result
 
 
 class QoSPolicyRule(PanObject):
@@ -52,3 +66,40 @@ class RemoteNetwork(PanObject):
     _endpoint = '/sse/config/v1/remote-networks'
 
 
+class SharedInfrastructureSetting(PanObject):
+    'Shared Infrastructure Settings'
+    _endpoint = '/sse/config/v1/shared-infrastructure-settings'
+    # TODO Fix this!
+    folder = 'Shared'
+    name = 'dummy'
+    def list(self, session):
+        if session.is_expired:
+            session.reauthenticate()
+        url = self._base_url + self._endpoint
+        params = {'folder': self.folder}
+        try:
+            session.response = session.get(
+                url = url,
+                params = params
+            )
+        except Exception as err:
+            print(err)
+        else:   
+            if session.response.status_code == 200:
+                result = session.response.json()
+                return result
+
+
+class ServiceConnection(PanObject):
+    'Service Connections'
+    _endpoint = '/sse/config/v1/service-connections'
+
+
+class InternalDNSServer(PanObject):
+    'Internal DNS Servers'
+    _endpoint = '/sse/config/v1/ingternal-dns-servers'
+
+
+class TrafficSteeringRule(PanObject):
+    'Traffic steering rules'
+    _endpoint = '/sse/config/v1/traffic-steering-rules'

@@ -13,14 +13,19 @@ This is a lightweight Python SDK designed to interact with Palo Alto Networks Cl
 
 ---
 ## Installation
+Upgrade to the latest pip
+```
+pip install --upgrade pip
+```
+
 Install using pip
 ```
-$ pip install pan-api-python
+$ pip install panapi
 ```
 
 Upgrade to the latest version
 ```
-$ pip install --upgrade pan-api-python
+$ pip install --upgrade panapi
 ```
 
 ---
@@ -49,7 +54,7 @@ import panapi
 ```
 Specific modules can be imported as well.
 ```py
-import panapi.config.security
+from panapi.config import security, network
 ```
 Individual classes can also be imported.
 ```py

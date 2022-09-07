@@ -148,5 +148,6 @@ class PanObject:
 
     @property
     def payload(self):
-        items = {k:v for k,v in self.__dict__.items() if k not in {'folder', 'id'}}
+        # items = {k:v for k,v in self.__dict__.items() if k not in {'folder', 'id'}}
+        items = {k:v for k,v in self.__dict__.items()}
         return items

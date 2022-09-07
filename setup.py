@@ -15,7 +15,7 @@ setup(
     description="A lightweight SDK for the Panorama Cloud API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/stealthllama/panapi",
+    url="https://github.com/PaloAltoNetworks/panapi",
     packages=find_packages(),
     install_requires=[
         "certifi==2022.6.15",

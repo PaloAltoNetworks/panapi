@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from platform import version
+# from platform import version
 from panapi.config import PanObject
 
 
@@ -32,7 +32,7 @@ class ConfigVersion(PanObject):
         url = self._base_url + self._endpoint + ":load"
         headers = {"Content-Type": "application/json"}
         # TODO Fix this once the endpoint supports POST by ID
-        body = {"version": self.id}
+        # body = {"version": self.id}
         try:
             session.response = session.post(
                 url=url,

@@ -91,7 +91,7 @@ class PanApiSession(OAuth2Session):
     @property
     def is_expired(self):
         try:
-            payload = jwt.decode(
+            jwt.decode(
                 self.access_token,
                 self.signing_key.key,
                 algorithms=["RS256"],

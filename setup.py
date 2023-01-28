@@ -29,7 +29,7 @@ setup(
         "PyYAML==6.0",
         "requests==2.28.1",
         "requests-oauthlib==1.3.1",
-        "urllib3==1.26.12"
+        "urllib3==1.26.12",
     ],
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -38,7 +38,7 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "License :: OSI Approved :: ISC License (ISCL)",
-        "Natural Language :: English"
+        "Natural Language :: English",
     ],
-    python_requires=">=3.6"
+    python_requires=">=3.6",
 )

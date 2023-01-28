@@ -109,7 +109,7 @@ addr1 = panapi.config.objects.Address(
     name = 'server1',
     ip_netmask = '10.0.100.150',
     description = 'App server 1',
-    tags = ['production']
+    tag = ['production']
     )
 ```
 

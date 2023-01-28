@@ -2,9 +2,28 @@
 
 
 class PanObject:
-    """Base class for all resource objects
+    """
+    PanObject - Base class for all resource objects
 
-    This class defines a configuration object that can defined in Palo Alto Networks Unified Cloud Manager.
+    This class defines a configuration object that can be defined in Palo Alto Networks Unified Cloud Manager.
+
+    It provides basic CRUD (Create, Read, Update, Delete) operations and implements a payload property
+    that can be used to send & receive data in JSON format.
+
+    Attributes:
+      - _base_url (str): base url for the API calls, defaults to "https://api.sase.paloaltonetworks.com"
+
+    Methods:
+      - init(self, **kwargs) : constructor that initializes the object with key-value pairs passed as kwargs.
+      - str(self) : returns a string representation of the object
+      - create(self, session) : creates a new resource object.
+      - read(self, session) : reads an existing resource object.
+      - list(self, session) : lists all resource objects of the same type.
+      - update(self, session) : updates an existing resource object.
+      - delete(self, session) : deletes a resource object.
+
+    Properties:
+      - payload (dict): returns a dictionary representation of the object's attributes, except for 'folder' and 'id'.
     """
 
     _base_url = "https://api.sase.paloaltonetworks.com"

@@ -1,6 +1,14 @@
 # panapi
 
-This is a lightweight Python SDK designed to interact with Palo Alto Networks Cloud Management API. It consists of an object-oriented library that simplifies OAuth 2.0 session estalishment, access token validation, and automatic access token refresh. Each configuration API endpoint is represented as unique object instances that provide a common set of create, read, update, delete, and list functions.
+This is a lightweight Python SDK designed to interact with
+Palo Alto Networks Cloud Management API.
+
+It consists of an object-oriented library that simplifies
+OAuth 2.0 session establishment, access token validation,
+and automatic access token refresh.
+
+Each configuration API endpoint is represented as unique object instances
+that provide a common set of create, read, update, delete, and list functions.
 
 ---
 
@@ -39,13 +47,17 @@ pip install --upgrade panapi
 
 ## Configuration
 
-The Cloud Management API utilizes OAuth 2.0 to authenticate and authorize incoming API calls. This requires requesting an access token from an Authorization Server. The credentials needed to request an access token can be defined in a configuration located at `$HOME/.panapi/config.yml`.
+The Cloud Management API utilizes OAuth 2.0 to authenticate and authorize
+incoming API calls.
 
-```yml
+This requires requesting an access token from an Authorization Server.
+
+The credentials needed to request an access token can be defined in a
+configuration located at `$HOME/.panapi/config.yml`
+
+```yaml
 ---
-#
 # my-tenant
-#
 client_id: apitest@1808050139.iam.panserviceaccount.com
 client_secret: feea5864-f557-11ec-b939-0242ac120002
 scope: tsg_id:1808050139
@@ -56,7 +68,9 @@ token_url: https://auth.apps.paloaltonetworks.com/am/oauth2/access_token
 
 ## Usage
 
-The following is a brief overview of how to use the `pan-api-python` SDK. For comprehensive details on its usage, please refer to the documentation [here](https://www.lipsum.com).
+The following is a brief overview of how to use the `pan-api-python` SDK.
+For comprehensive details on its usage, please refer to the documentation
+[here](https://www.lipsum.com).
 
 ### Import the modules
 
@@ -93,7 +107,11 @@ If successful, the access token will become an attribute of the `PanApiSession` 
 session.access_token
 ```
 
-Token validation is done automatically with each API call using the `pan-api-python` SDK. However, manual validation of the JWT token claims and cryptographic signature can be done as well.
+Token validation is done automatically with each API call using
+the `pan-api-python` SDK.
+
+However, manual validation of the JWT token claims and cryptographic signature
+can be done as well.
 
 ```py
 session.is_valid
@@ -119,7 +137,8 @@ Create the new configuration on the cloud management tenant.
 addr1.create(session)
 ```
 
-The HTTP status code resulting from `PanApiSession` API transactions attached to the session instance.
+The HTTP status code resulting from `PanApiSession` API transactions
+attached to the session instance.
 
 ```py
 result = session.status_code

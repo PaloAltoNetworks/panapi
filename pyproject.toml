@@ -27,6 +27,7 @@ invoke = "^2.0.0"
 flake8 = "^6.0.0"
 ipython = "^8.9.0"
 bandit = "^1.7.4"
+pymarkdownlnt = "^0.9.8"
 
 [build-system]
 requires = ["poetry-core"]

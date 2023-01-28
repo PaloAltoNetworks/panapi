@@ -9,7 +9,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at [https://github.com/PaloAltoNetworks/panapi/issues](https://github.com/PaloAltoNetworks/panapi/issues).
+Report bugs at [issues](https://github.com/PaloAltoNetworks/panapi/issues).
 
 ### Fix Bugs
 
@@ -23,8 +23,9 @@ is open to whoever wants to implement it.
 
 ### Write Documentation
 
-The SDK for Cloud Management could always use more documentation, whether as part of the official pan-os-python docs, in docstrings, or even on the web in blog posts,
-articles, and such.
+The SDK for Cloud Management could always use more documentation, whether as
+part of the official pan-os-python docs, in docstrings,
+or even on the web in blog posts, articles, and such.
 
 The main documentation is in the `docs` directory and the API reference is
 generated from docstrings in the code.
@@ -34,7 +35,8 @@ generate the documentation locally.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at [https://github.com/stealthllama/pan-api-python/issues](https://github.com/stealthllama/pan-api-python/issues).
+The best way to send feedback is to file an issue at
+[issues](https://github.com/PaloAltoNetworks/panapi/issues).
 
 If you are proposing a feature:
 
@@ -62,7 +64,8 @@ Ready to contribute some code? Here's how to set up `pan-api-python` for local d
 4. Install Poetry
 
    Poetry is a dependency manager and build tool for python
-   If you don't have poetry installed, use the instructions [here](https://python-poetry.org/docs/#installation) to install it.
+   If you don't have poetry installed, use the instructions
+   [here](https://python-poetry.org/docs/#installation) to install it.
 
 5. Create a virtual environment with dependencies::
 
@@ -78,7 +81,8 @@ Ready to contribute some code? Here's how to set up `pan-api-python` for local d
 
 7. Now you can make your changes locally
 
-8. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox.
+8. When you're done making changes, check that your changes pass flake8
+   and the tests, including testing other Python versions with tox.
 
    ```bash
    poetry run make lint

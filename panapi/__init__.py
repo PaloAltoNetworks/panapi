@@ -66,9 +66,13 @@ class PanApiSession(OAuth2Session):
             client_secret=self.client_secret,
         )
         # Retrieve the signing key for token validation
-        jwks_uri = "/".join(self.token_url.split("/")[:-1]) + "/connect/jwk_uri"
+        jwks_uri = (
+            "/".join(self.token_url.split("/")[:-1]) + "/connect/jwk_uri"
+        )
         jwks_client = PyJWKClient(jwks_uri)
-        self.signing_key = jwks_client.get_signing_key_from_jwt(self.access_token)
+        self.signing_key = jwks_client.get_signing_key_from_jwt(
+            self.access_token
+        )
 
     def reauthenticate(self):
         self.fetch_token(

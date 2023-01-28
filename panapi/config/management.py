@@ -19,7 +19,9 @@ class ConfigVersion(PanObject):
         url = self._base_url + self._endpoint + "/candidate:push"
         headers = {"Content-Type": "application/json"}
         try:
-            session.response = session.post(url=url, headers=headers, json=self.payload)
+            session.response = session.post(
+                url=url, headers=headers, json=self.payload
+            )
         except Exception as err:
             print(err)
         else:
@@ -37,7 +39,7 @@ class ConfigVersion(PanObject):
             session.response = session.post(
                 url=url,
                 headers=headers,
-                # TODO Change back to self.payload once the endpoint supports POST by ID
+                # TODO Change to self.payload once endpoint supports POST by ID
                 json=self.body,
             )
         except Exception as err:

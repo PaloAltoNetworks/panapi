@@ -123,7 +123,8 @@ class PanObject:
             print(err)
         else:
             if session.response.status_code == 200:
-                config = session.response.json()
+                session.response.json()
+            #     config = session.response.json()
             # return config
 
     def delete(self, session):

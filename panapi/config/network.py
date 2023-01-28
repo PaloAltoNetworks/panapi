@@ -94,7 +94,7 @@ class ServiceConnection(PanObject):
 
 class InternalDNSServer(PanObject):
     "Internal DNS Servers"
-    _endpoint = "/sse/config/v1/ingternal-dns-servers"
+    _endpoint = "/sse/config/v1/internal-dns-servers"
 
 
 class TrafficSteeringRule(PanObject):

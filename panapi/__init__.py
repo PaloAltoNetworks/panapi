@@ -3,7 +3,6 @@
 # import json
 import yaml
 import os
-import sys
 import jwt
 from jwt import PyJWKClient
 from jwt.exceptions import ExpiredSignatureError

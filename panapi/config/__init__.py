@@ -5,20 +5,24 @@ class PanObject:
     """
     PanObject - Base class for all resource objects
 
-    This class defines a configuration object that can be defined in Palo Alto Networks Unified Cloud Manager.
+    This class defines a configuration object that can be defined in
+    Palo Alto Networks Unified Cloud Manager.
 
-    It provides basic CRUD (Create, Read, Update, Delete) operations and implements a payload property
-    that can be used to send & receive data in JSON format.
+    It provides basic CRUD (Create, Read, Update, Delete) operations
+    and implements a payload property that can be used to send & receive data
+    in JSON format.
 
     Attributes
     ----------
     _base_url (str)
-        base url for the API calls, defaults to "https://api.sase.paloaltonetworks.com"
+        base url for the API calls, defaults to
+        "https://api.sase.paloaltonetworks.com"
 
     Methods
     -------
     init(self, **kwargs)
-        constructor that initializes the object with key-value pairs passed as kwargs.
+        constructor that initializes the object with key-value pairs
+        passed as kwargs.
 
     str(self)
         returns a string representation of the object
@@ -41,7 +45,8 @@ class PanObject:
     Properties
     ----------
     payload (dict)
-        returns a dictionary representation of the object's attributes, except for 'folder' and 'id'.
+        returns a dictionary representation of the object's attributes,
+        except for 'folder' and 'id'.
     """
 
     _base_url = "https://api.sase.paloaltonetworks.com"
@@ -155,7 +160,9 @@ class PanObject:
         else:
             params = {}
         try:
-            session.response = session.delete(url=url, headers=headers, params=params)
+            session.response = session.delete(
+                url=url, headers=headers, params=params
+            )
         except Exception as err:
             print(err)
         else:
@@ -164,6 +171,5 @@ class PanObject:
 
     @property
     def payload(self):
-        # items = {k:v for k,v in self.__dict__.items() if k not in {'folder', 'id'}}
         items = {k: v for k, v in self.__dict__.items()}
         return items

@@ -94,5 +94,5 @@ class URLCategory(PanObject):
 
 
 class URLFilteringCategory(PanObject):
-    "A prefined URL category"
+    "A predefined URL category"
     _endpoint = "/sse/config/v1/url-filtering-categories"

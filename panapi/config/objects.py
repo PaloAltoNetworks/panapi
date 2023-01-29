@@ -88,6 +88,11 @@ class ServiceGroup(PanObject):
     _endpoint = "/sse/config/v1/service-groups"
 
 
+class Tag(PanObject):
+    "A tag object"
+    _endpoint = "/sse/config/v1/tags"
+
+
 class URLCategory(PanObject):
     "A custom URL category"
     _endpoint = "/sse/config/v1/url-categories"

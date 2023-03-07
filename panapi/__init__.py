@@ -87,7 +87,7 @@ class PanApiSession(OAuth2Session):
             self.signing_key.key,
             algorithms=["RS256"],
             audience=self.client_id,
-            options={"verify_exp": False},
+            options={"verify_exp": False, "verify_iat": False},
         )
         return payload
 

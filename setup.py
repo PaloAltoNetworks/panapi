@@ -9,7 +9,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 
 setup(
     name="panapi",
-    version="0.0.1",
+    version="0.0.2",
     author="Palo Alto Networks",
     author_email="devrel@paloaltonetworks.com",
     description="A lightweight SDK for the Panorama Cloud API",

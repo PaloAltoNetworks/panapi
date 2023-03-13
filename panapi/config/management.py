@@ -33,14 +33,12 @@ class ConfigVersion(PanObject):
             session.reauthenticate()
         url = self._base_url + self._endpoint + ":load"
         headers = {"Content-Type": "application/json"}
-        # TODO Fix this once the endpoint supports POST by ID
-        # body = {"version": self.id}
+        body = {"version": self.version}
         try:
             session.response = session.post(
                 url=url,
                 headers=headers,
-                # TODO Change to self.payload once endpoint supports POST by ID
-                json=self.body,
+                json=body,
             )
         except Exception as err:
             print(err)

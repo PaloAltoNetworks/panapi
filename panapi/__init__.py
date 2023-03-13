@@ -55,6 +55,11 @@ class PanApiSession(OAuth2Session):
             self.client_secret = config["client_secret"]
             self.scope = config["scope"]
             self.token_url = config["token_url"]
+        # Fix the scope to include email and profile
+        if str(self.scope).isdigit():
+            self.scope = "email profile tsg_id:" + str(self.scope)
+        else:
+            self.scope = "email profile " + str(self.scope)
         # Request the access token and retrieve the issuer's signing key
         oauth2_client = BackendApplicationClient(
             client_id=self.client_id, scope=self.scope

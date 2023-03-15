@@ -35,14 +35,14 @@ class PanApiSession(OAuth2Session):
 
     _configfile = "~/.panapi/config.yml"
 
-    def authenticate(self, **kwargs):
+    def authenticate(self, token_url = 'https://auth.apps.paloaltonetworks.com/am/oauth2/access_token', **kwargs):
+        self.token_url = 'https://auth.apps.paloaltonetworks.com/am/oauth2/access_token'
         # Process the configfile or kwargs
-        keys = ("client_id", "client_secret", "scope", "token_url")
+        keys = ("client_id", "client_secret", "tsg_id")
         if set(keys).issubset(kwargs):
             self.client_id = kwargs.get("client_id")
             self.client_secret = kwargs.get("client_secret")
-            self.scope = kwargs.get("scope")
-            self.token_url = kwargs.get("token_url")
+            self.tsg_id = kwargs.get("tsg_id")
         else:
             if "configfile" in kwargs:
                 self._configfile = kwargs.get("configfile")
@@ -53,13 +53,9 @@ class PanApiSession(OAuth2Session):
                 config = yaml.safe_load(c.read())
             self.client_id = config["client_id"]
             self.client_secret = config["client_secret"]
-            self.scope = config["scope"]
-            self.token_url = config["token_url"]
+            self.tsg_id = config["tsg_id"]
         # Fix the scope to include email and profile
-        if str(self.scope).isdigit():
-            self.scope = "email profile tsg_id:" + str(self.scope)
-        else:
-            self.scope = "email profile " + str(self.scope)
+        self.scope = "email profile tsg_id:" + str(self.tsg_id)
         # Request the access token and retrieve the issuer's signing key
         oauth2_client = BackendApplicationClient(
             client_id=self.client_id, scope=self.scope

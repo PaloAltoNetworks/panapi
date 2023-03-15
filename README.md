@@ -52,23 +52,33 @@ incoming API calls.
 
 This requires requesting an access token from an Authorization Server.
 
-The credentials needed to request an access token can be defined in a
-configuration located at `$HOME/.panapi/config.yml`
+The credentials needed to request an access token can be defined either in a
+configuration located at `$HOME/.panapi/config.yml` or provided as arguments to the `PanApiSession.authentication()` method.
+
+### Option 1: Configuration file
 
 ```yaml
 ---
 # my-tenant
 client_id: apitest@1808050139.iam.panserviceaccount.com
 client_secret: feea5864-f557-11ec-b939-0242ac120002
-scope: tsg_id:1808050139
-token_url: https://auth.apps.paloaltonetworks.com/am/oauth2/access_token
+tsg_id: 1808050139
 ```
 
+### Option 2: Method arguments
+```python
+session = panapi.PanApiSession()
+session.authenticate(
+    client_id = 'apitest@1808050139.iam.panserviceaccount.com',
+    client_secret ='feea5864-f557-11ec-b939-0242ac120002',
+    tsg_id = 1808050139
+)
+```
 ---
 
 ## Usage
 
-The following is a brief overview of how to use the `pan-api-python` SDK.
+The following is a brief overview of how to use the `panapi` SDK.
 For comprehensive details on its usage, please refer to the documentation
 [here](https://www.lipsum.com).
 
